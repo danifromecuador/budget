@@ -1,4 +1,4 @@
-class Expense < ApplicationRecord
-  belongs_to :user
+class Expense < ApplicationRecord  
+  belongs_to :author, class_name: 'User'
   belongs_to :category
 end
