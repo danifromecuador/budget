@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :categories
   has_many :expenses
+
+  validate :fullname
+
+  def fullname
+    return unless name.split.size != 2
+
+    errors.add(:name, 'must contain two names separated by a space')
+  end
 end
