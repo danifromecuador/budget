@@ -1,18 +1,34 @@
-<div class="header">
-  <span><a href="<%= root_path %>" class="back-arrow">←</a></span>
-  <span>CATEGORIES</span>
-  <span><a href="<%= categories_path %>" class="back-arrow">&#128269;</a></span>
-</div>
-<div>
-  <span>Gift credit</span>
-  <span>$ 110.25</span>
-</div>
-<hr>
-<ul>
-  <% @categories.each do |category| %>
-    <%= link_to category.name, category %>
-    <li>
-      qweqweqwe
-    </li>
+<div class="categories-index">
+  <div class="header">
+    <span><a href="<%= root_path %>" class="back-arrow">←</a></span>
+    <span>CATEGORIES</span>
+    <span><a href="<%= categories_path %>" class="back-arrow">&#128269;</a></span>
+  </div>
+  <div class="gift-credit">
+    <span>Gift credit</span>
+    <span>$ 110.25</span>
+  </div>
+  <hr>
+  <ul>
+    <% @categories.each do |category| %>
+      <%= link_to category do %>
+        <li>
+          <div class="left">
+            <%= content_tag(:span, raw(category.icon), class: "category-icon") %>
+            <span><%= category.name %></span>
+          </div>
+          <div class="right">
+            <span>total value:</span>
+            <span>110.25</span>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <%= link_to new_category_path, class: "add-category" do %>
+    <div class="add-category-border">
+      <div class="add-category-link">ADD CATEGORY</div>
+    </div>
   <% end %>
-</ul>
+</div>
+</div>
