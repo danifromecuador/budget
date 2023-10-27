@@ -100,6 +100,7 @@ a {
 
 .field input[type="text"],
 .field input[type="email"],
+.field input[type="number"],
 .field input[type="password"] {
   border: none;
   width: 100%;
@@ -107,9 +108,16 @@ a {
   padding: 20px;
 }
 
+.field input[type="number"]::-webkit-inner-spin-button,
+.field input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 .field input[type="text"],
 .field input[type="email"]:focus,
-.field input[type="password"]:focus {
+.field input[type="password"]:focus,
+.field input[type="number"]:focus {
   outline: none;
 }
 
@@ -199,4 +207,9 @@ a {
 
 .field-icon select {
   font-size: 34px;
+}
+
+/* expenses new */
+.field-category select {
+  font-size: medium;
 }

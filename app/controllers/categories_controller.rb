@@ -6,7 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @expenses = Expense.where(category_id: params[:id])
+    @category = Category.find_by(id: params[:id])
+    @expenses = Expense.where(category_id: params[:id]).order(created_at: :desc)
   end
 
   def new
@@ -16,8 +17,10 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    @icons = ['&#x1F600;', '&#x1F601;', '&#x1F602;', '&#x1F603;', '&#x1F604;', '&#x1F605;', '&#x1F606;', '&#x1F607;',
+              '&#x1F608;', '&#x1F609;']
     @category = Category.new(category_params)
-
+    @category.user = current_user
     if @category.save
       redirect_to categories_path
     else
@@ -28,6 +31,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :icon, :user_id)
+    params.require(:category).permit(:name, :icon, :category_id)
   end
 end
