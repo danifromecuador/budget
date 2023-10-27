@@ -9,7 +9,7 @@ body {
   color: #434b54;
   margin: 0 auto;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 a {
@@ -174,6 +174,9 @@ a {
 
 .add-category-link {
   color: white;
+  border: none;
+  background-color: #5fb523;
+  cursor: pointer;
 }
 
 /* categories show */
@@ -185,4 +188,15 @@ a {
 
 .categories-show-li .right {
   justify-content: flex-end;
+}
+
+/* categories new */
+.field-icon {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.field-icon select {
+  font-size: 34px;
 }
