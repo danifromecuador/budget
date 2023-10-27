@@ -1,0 +1,29 @@
+<div class="categories-index">
+  <div class="header">
+    <span><a href="<%= root_path %>" class="back-arrow">←</a></span>
+    <span>CATEGORIES</span>
+    <span><a href="<%= categories_path %>" class="back-arrow">&#128269;</a></span>
+  </div>
+  <div class="gift-credit">
+    <span>Gift credit</span>
+    <span>$ 110.25</span>
+  </div>
+  <hr>
+  <ul>
+    <% @expenses.each do |expense| %>
+      <li class="categories-show-li">
+        <div class="left">
+          <%= expense.name %>
+        </div>
+        <div class="right">
+          <%= expense.amount %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to new_category_path, class: "add-category" do %>
+    <div class="add-category-border">
+      <div class="add-category-link">TODO ADD EXPENSE</div>
+    </div>
+  <% end %>
+</div>
