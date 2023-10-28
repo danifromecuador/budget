@@ -4,8 +4,8 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @expenses = Expense.all
-    @category_totals = calculate_categories_totals
     @total = @expenses.sum(:amount)
+    @category_totals = calculate_categories_totals
   end
 
   def show

@@ -6,7 +6,7 @@
     <span><a href="<%= categories_path %>" class="back-arrow">&#128269;</a></span>
   </div>
   <div class="gift-credit">
-    <span>Gift credit</span>
+    <span>Total for all categories:</span>
     <span>$ <%= @total %></span>
   </div>
   <hr>
@@ -20,7 +20,7 @@
           </div>
           <div class="right">
             <span>total: </span>
-            <span> <%= @category_totals[category.name] %></span>
+            <span> $ <%= @category_totals[category.name] %></span>
           </div>
         </li>
       <% end %>

@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_033833) do
 
   create_table "expenses", force: :cascade do |t|
     t.string "name"
-    t.decimal "amount"
+    t.integer "amount"
     t.bigint "author_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false

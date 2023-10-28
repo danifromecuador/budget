@@ -8,15 +8,15 @@
   <%= form_for(@expense) do |f| %>
     <hr>
     <div class="field">
-      <%= f.text_field :name, placeholder: "Name" %>
+      <%= f.text_field :name, placeholder: "Name", required: true %>
     </div>
     <hr>
     <div class="field">
-      <%= f.number_field :amount, placeholder: "Amount" %>
+      <%= f.number_field :amount, placeholder: "Amount", required: true %>
     </div>
     <hr>
     <div class="field-icon field-category">
-      <%= f.collection_select :category_id, @categories, :id, :name, prompt: "Select a Category" %>
+      <%= f.collection_select :category_id, @categories, :id, :name, prompt: "Select a Category", required: true %>
     </div>
     
     <div class="add-category">
