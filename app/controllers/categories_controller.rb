@@ -12,13 +12,11 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-    @icons = ['&#x1F600;', '&#x1F601;', '&#x1F602;', '&#x1F603;', '&#x1F604;', '&#x1F605;', '&#x1F606;', '&#x1F607;',
-              '&#x1F608;', '&#x1F609;']
+    @icons = ['&#x1F374;', '&#x2708;', '&#x1F393;', '&#x1F489;', '&#x1F697;', '&#x1F4A1;', '&#x1F3E0;', '&#x1F3A7;',
+              '&#x1F6CD;', '&#x1F381;']
   end
 
   def create
-    @icons = ['&#x1F600;', '&#x1F601;', '&#x1F602;', '&#x1F603;', '&#x1F604;', '&#x1F605;', '&#x1F606;', '&#x1F607;',
-              '&#x1F608;', '&#x1F609;']
     @category = Category.new(category_params)
     @category.user = current_user
     if @category.save

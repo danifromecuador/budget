@@ -1,5 +1,4 @@
 <%# path: app/views/categories/index.html.erb %>
-
 <div class="categories-index">
   <div class="header">
     <span><a href="<%= root_path %>" class="back-arrow">←</a></span>
@@ -27,10 +26,10 @@
       <% end %>
     <% end %>
   </ul>
-  <%= link_to new_category_path, class: "add-category" do %>
-    <div class="add-category-border">
+  <div class="add-category">
+    <%= link_to new_category_path, class: "add-category-border" do %>
       <div class="add-category-link">ADD CATEGORY</div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 </div>

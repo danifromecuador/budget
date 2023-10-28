@@ -3,11 +3,11 @@
   <div class="header">
     <span><a href="<%= root_path %>" class="back-arrow">←</a></span>
     <span>ADD CATEGORY</span>
-    <span><a href="<%= categories_path %>" class="back-arrow">&#128269;</a></span>
+    <span><a href="<%= new_category_path %>" class="back-arrow">&#128269;</a></span>
   </div>
   <%= form_for(@category) do |f| %>
     <div class="field">
-      <%= f.text_field :name, autocomplete: "off", placeholder: "Name" %>
+      <%= f.text_field :name, autocomplete: "off", placeholder: "Name", required: true %>
     </div>
     <hr>
     <div class="field-icon">
