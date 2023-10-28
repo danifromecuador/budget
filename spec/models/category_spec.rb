@@ -4,7 +4,7 @@ RSpec.describe Category, type: :model do
   let(:user) { User.create(name: 'John Doe', email: 'foo@bar.com', password: '123456') }
 
   it 'is valid with a name and user' do
-    category = Category.new(name: 'Food', user: user)
+    category = Category.new(name: 'Food', user:)
     expect(category).to be_valid
   end
 
@@ -15,7 +15,7 @@ RSpec.describe Category, type: :model do
 
   it 'allows the same category name for different users' do
     another_user = User.create(name: 'Alice', email: 'alice@bar.com', password: '654321')
-    category1 = Category.create(name: 'Food', user: user)
+    Category.create(name: 'Food', user:)
     category2 = Category.new(name: 'Food', user: another_user)
     expect(category2).to be_valid
   end

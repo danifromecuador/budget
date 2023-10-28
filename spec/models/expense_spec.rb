@@ -14,7 +14,6 @@ RSpec.describe Expense, type: :model do
     expect(expense.author).to eq(user)
   end
 
-
   it 'requires a category' do
     expense = Expense.new(amount: 25, author: user)
     expect(expense).to_not be_valid
