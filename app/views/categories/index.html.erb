@@ -7,7 +7,7 @@
   </div>
   <div class="gift-credit">
     <span>Gift credit</span>
-    <span>$ 110.25</span>
+    <span>$ <%= @total %></span>
   </div>
   <hr>
   <ul>
@@ -19,8 +19,8 @@
             <span><%= category.name %></span>
           </div>
           <div class="right">
-            <span>total value:</span>
-            <span>110.25</span>
+            <span>total: </span>
+            <span> <%= @category_totals[category.name] %></span>
           </div>
         </li>
       <% end %>

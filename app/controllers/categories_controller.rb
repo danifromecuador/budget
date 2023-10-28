@@ -3,11 +3,15 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @expenses = Expense.all
+    @category_totals = calculate_categories_totals
+    @total = @expenses.sum(:amount)
   end
 
   def show
     @category = Category.find_by(id: params[:id])
     @expenses = Expense.where(category_id: params[:id]).order(created_at: :desc)
+    @total_for_category = @expenses.sum(:amount)
   end
 
   def new
@@ -30,5 +34,17 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :icon, :category_id)
+  end
+
+  def calculate_categories_totals
+    category_totals = {}
+
+    @categories.each do |category|
+      category_expenses = @expenses.where(category_id: category.id)
+      total = category_expenses.sum(:amount)
+      category_totals[category.name] = total
+    end
+
+    category_totals
   end
 end
