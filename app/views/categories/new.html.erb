@@ -5,6 +5,11 @@
     <span>ADD CATEGORY</span>
     <span><a href="<%= new_category_path %>" class="back-arrow">&#128269;</a></span>
   </div>
+
+  <% if @category.errors.any? %>
+  asñdkflj
+  <% end %>
+
   <%= form_for(@category) do |f| %>
     <div class="field">
       <%= f.text_field :name, autocomplete: "off", placeholder: "Name", required: true %>

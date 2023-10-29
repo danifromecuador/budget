@@ -21,11 +21,15 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    @icons = ['&#x1F374;', '&#x2708;', '&#x1F393;', '&#x1F489;', '&#x1F697;', '&#x1F4A1;', '&#x1F3E0;', '&#x1F3A7;',
+              '&#x1F6CD;', '&#x1F381;']
     @category = Category.new(category_params)
     @category.user = current_user
+
     if @category.save
       redirect_to categories_path
     else
+      pp @category.errors
       render 'new'
     end
   end
@@ -33,7 +37,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :icon, :category_id)
+    params.require(:category).permit(:name, :icon, :category_id, :user_id)
   end
 
   def calculate_categories_totals
