@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     root "categories#index", as: :authenticated_root
   end
   root "welcome#index"
-  resources :categories
-  resources :expenses
+  resources :categories, only: [:index, :new, :show, :create]
+  resources :expenses, only: [:new, :create]
 end
