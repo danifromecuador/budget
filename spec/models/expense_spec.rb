@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Expense, type: :model do
   let(:user) { User.create(name: 'John Doe', email: 'foo@bar.com', password: '123456') }
-  let(:category) { Category.create(name: 'Food', user:) }
+  let(:category) { Category.create(name: 'Food', icon: '&#x1F374;', user:) }
 
   it 'is associated with a category' do
     expense = Expense.new(amount: 25, category:)
@@ -25,7 +25,7 @@ RSpec.describe Expense, type: :model do
   end
 
   it 'can save a valid expense' do
-    expense = Expense.new(amount: 50, category:, author: user)
+    expense = Expense.new(name: 'Pizza', amount: 25, category:, author: user)
     expect(expense).to be_valid
   end
 end
