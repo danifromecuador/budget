@@ -6,23 +6,25 @@ default: &default
 
 development:
   <<: *default
-  database: recipes_app_4x8y
-  username: recipes_app_4x8y_user
-  password: cr5G6k4AQSHW4ZKgxh9Uy5UTrPiWLMLB
-  host: dpg-cpu5v1tumphs738i5p60-a.oregon-postgres.render.com
-  port: 5432
+  database: shared_db_for_portfolio
+  username: <%= ENV["BUDGET_DATABASE_USERNAME"] %>
+  password: <%= ENV["BUDGET_DATABASE_PASSWORD"] %>
+  host: <%= ENV["BUDGET_DATABASE_HOST"] %>
+  port: <%= ENV["BUDGET_DATABASE_PORT"] %>
 
 test:
   <<: *default
-  database: recipes_app_4x8y
-  username: recipes_app_4x8y_user
-  password: cr5G6k4AQSHW4ZKgxh9Uy5UTrPiWLMLB
-  host: dpg-cpu5v1tumphs738i5p60-a.oregon-postgres.render.com
-  port: 5432
+  database: shared_db_for_portfolio
+  username: <%= ENV["BUDGET_DATABASE_USERNAME"] %>
+  password: <%= ENV["BUDGET_DATABASE_PASSWORD"] %>
+  host: <%= ENV["BUDGET_DATABASE_HOST"] %>
+  port: <%= ENV["BUDGET_DATABASE_PORT"] %>
 
 production:
   <<: *default
-  database: recipes_app_4x8y
-  username: budget
+  database: shared_db_for_portfolio
+  username: <%= ENV["BUDGET_DATABASE_USERNAME"] %>
   password: <%= ENV["BUDGET_DATABASE_PASSWORD"] %>
-  url:  <%= ENV['DATABASE_URL'] %>
+  host: <%= ENV["BUDGET_DATABASE_HOST"] %>
+  port: <%= ENV["BUDGET_DATABASE_PORT"] %>
+  url: <%= ENV['BUDGET_DATABASE_URL'] %>
