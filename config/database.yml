@@ -2,29 +2,17 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  schema_search_path: "budget_schema,public"
 
 development:
   <<: *default
-  database: shared_db_for_portfolio
-  username: <%= ENV["BUDGET_DATABASE_USERNAME"] %>
-  password: <%= ENV["BUDGET_DATABASE_PASSWORD"] %>
-  host: <%= ENV["BUDGET_DATABASE_HOST"] %>
-  port: <%= ENV["BUDGET_DATABASE_PORT"] %>
+  database: budget_app_dev
 
 test:
   <<: *default
-  database: shared_db_for_portfolio
-  username: <%= ENV["BUDGET_DATABASE_USERNAME"] %>
-  password: <%= ENV["BUDGET_DATABASE_PASSWORD"] %>
-  host: <%= ENV["BUDGET_DATABASE_HOST"] %>
-  port: <%= ENV["BUDGET_DATABASE_PORT"] %>
+  database: budget_app_test
 
 production:
   <<: *default
-  database: shared_db_for_portfolio
-  username: <%= ENV["BUDGET_DATABASE_USERNAME"] %>
-  password: <%= ENV["BUDGET_DATABASE_PASSWORD"] %>
-  host: <%= ENV["BUDGET_DATABASE_HOST"] %>
-  port: <%= ENV["BUDGET_DATABASE_PORT"] %>
-  url: <%= ENV['BUDGET_DATABASE_URL'] %>
+  database: budget_app_prod
+  username: budget_app
+  password: <%= ENV["BUDGET_APP_DATABASE_PASSWORD"] %>
